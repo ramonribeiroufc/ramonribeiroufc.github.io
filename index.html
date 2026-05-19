@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ramon Lima Ribeiro — M.Sc. student in Economics at CAEN/UFC. Development economics, regional economics, applied econometrics, and public policy." />
+  <title>Ramon Lima Ribeiro</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --text: #1d1d1f;
+      --muted: #626262;
+      --line: #d9d6cf;
+      --accent: #1f4e79;
+      --accent-dark: #153a5a;
+      --card: #ffffff;
+      --soft: #eef2f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .hero {
+      padding: 72px 0 58px;
+      display: grid;
+      grid-template-columns: 1.5fr 0.9fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.02;
+      margin: 0 0 18px;
+      letter-spacing: -1.6px;
+    }
+
+    .subtitle {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.05);
+    }
+
+    .profile-card h2 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .profile-card p {
+      margin: 12px 0;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-title {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 0;
+      letter-spacing: -0.4px;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .paper, .item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .paper h3, .item h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      margin: 0 0 10px;
+    }
+
+    .meta {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--soft);
+      border: 1px solid #d6e0e8;
+      border-radius: 999px;
+      padding: 5px 9px;
+      margin: 4px 4px 0 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 36px 0 46px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero,
+      .section-title,
+      .grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">Ramon Lima Ribeiro</div>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">M.Sc. Student in Economics · CAEN/UFC</div>
+        <h1>Applied research on development, regions, and public policy.</h1>
+        <p class="subtitle">
+          I am an M.Sc. student in Economics at the CAEN Graduate Program in Economics, Federal University of Ceará. My research interests are development economics, regional and urban economics, applied econometrics, and public policy.
+        </p>
+        <div class="buttons">
+          <a class="button" href="mailto:ramonribeiropop@alu.ufc.br">Email me</a>
+          <a class="button secondary" href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">ORCID</a>
+          <a class="button secondary" href="#research">View research</a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <h2>Profile</h2>
+        <p><strong>Institution:</strong> Federal University of Ceará, CAEN Graduate Program in Economics</p>
+        <p><strong>Advisor:</strong> Christiano Modesto Penna</p>
+        <p><strong>Fields:</strong> Development Economics; Regional and Urban Economics; Applied Econometrics; Public Policy</p>
+        <p><strong>Tools:</strong> R, Python, Julia, Stata, SQL, LaTeX</p>
+      </aside>
+    </section>
+
+    <section id="research" class="section">
+      <div class="section-title">
+        <h2>Research</h2>
+        <p class="section-intro">
+          My current work studies place-based policy, regional credit, water infrastructure, drought resilience, inequality measurement, and economic development in Brazil.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="paper">
+          <h3>Regional Credit, Local Capacity, and Productive Transformation: Evidence from Brazil’s Northeast Development Fund</h3>
+          <p class="meta">Solo-authored manuscript · Under review at <em>Regional Studies</em></p>
+          <span class="tag">Regional development</span>
+          <span class="tag">Credit policy</span>
+          <span class="tag">Shift-share designs</span>
+        </article>
+
+        <article class="paper">
+          <h3>Annual Municipal Inequality in Brazil Between Censuses: A Grouped Administrative Gini, 2012–2023</h3>
+          <p class="meta">Solo-authored manuscript · Under review at <em>Review of Income and Wealth</em></p>
+          <span class="tag">Inequality</span>
+          <span class="tag">Administrative data</span>
+          <span class="tag">Municipal Brazil</span>
+        </article>
+
+        <article class="paper">
+          <h3>Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil</h3>
+          <p class="meta">With Pedro Igor Araújo de Oliveira and Victor Lira Stilita · Under review at <em>International Economics and Economic Policy</em></p>
+          <span class="tag">Credit default</span>
+          <span class="tag">Monetary policy</span>
+          <span class="tag">Distributional effects</span>
+        </article>
+
+        <article class="paper">
+          <h3>Water Infrastructure, Human Capital, and Drought Resilience: Health and Education Impacts of Brazil’s São Francisco River Integration Project</h3>
+          <p class="meta">Work in progress · In preparation for submission to <em>World Development</em></p>
+          <span class="tag">Water infrastructure</span>
+          <span class="tag">Drought resilience</span>
+          <span class="tag">Human capital</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p class="section-intro">
+          Research experience in applied econometrics, regional development, industrial policy, input–output analysis, education economics, and public policy evaluation.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="item">
+          <h3>Researcher</h3>
+          <p class="meta">Ceará State Development Agency (ADECE) · 2025–present</p>
+          <p>Applied econometric research on regional development, industrial policy, and input–output analysis.</p>
+        </div>
+        <div class="item">
+          <h3>Research Assistant</h3>
+          <p class="meta">Education economics and public policy evaluation project · Jan. 2026–present</p>
+          <p>Research project involving collaborators affiliated with the University of Notre Dame and the University of Pennsylvania.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="section">
+      <div class="section-title">
+        <h2>Teaching and service</h2>
+        <p class="section-intro">
+          Teaching and academic leadership experience at the Federal University of Ceará.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="item">
+          <h3>Teaching Assistant</h3>
+          <p class="meta">Federal University of Ceará · 2022–2025</p>
+          <ul>
+            <li>Mathematical Economics</li>
+            <li>Economic Statistics</li>
+            <li>Economic Growth Theory</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>PET Economics Program</h3>
+          <p class="meta">Federal University of Ceará · 2022–2025</p>
+          <ul>
+            <li>President</li>
+            <li>Head of Research</li>
+            <li>Member</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p class="section-intro">
+          I am currently preparing applications for Ph.D. programs in Economics, with interests in development economics, regional economics, applied microeconometrics, and public policy.
+        </p>
+      </div>
+
+      <div class="item">
+        <p><strong>Email:</strong> <a href="mailto:ramonribeiropop@alu.ufc.br">ramonribeiropop@alu.ufc.br</a></p>
+        <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">0009-0003-5735-8484</a></p>
+        <p><strong>Location:</strong> Fortaleza, Ceará, Brazil</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Ramon Lima Ribeiro. Last updated May 2026.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
