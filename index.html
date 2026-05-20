@@ -74,7 +74,7 @@
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 20px;
       font-size: 15px;
     }
 
@@ -186,9 +186,10 @@
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 22px;
-      padding: 26px;
+      padding: 24px;
       box-shadow: 0 16px 40px rgba(0,0,0,0.05);
       margin-top: 0;
+      font-size: 14.5px;
     }
 
     .profile-photo {
@@ -197,19 +198,27 @@
       object-fit: cover;
       border-radius: 50%;
       display: block;
-      margin: 0 0 20px;
+      margin: 0 0 18px;
       border: 1px solid var(--line);
       background: var(--soft-2);
     }
 
     .profile-card h2 {
-      margin: 0 0 12px;
-      font-size: 23px;
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .profile-card h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+      color: var(--navy);
+      letter-spacing: 0;
     }
 
     .profile-card p {
-      margin: 11px 0;
+      margin: 8px 0;
       color: var(--muted);
+      line-height: 1.48;
     }
 
     .section {
@@ -413,11 +422,12 @@
       <div class="brand">Ramon Lima Ribeiro</div>
       <div class="nav-links">
         <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#honors">Honors</a>
         <a href="#cv">CV</a>
         <a href="#experience">Experience</a>
         <a href="#teaching">Teaching</a>
         <a href="#conferences">Conferences</a>
-        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
@@ -442,19 +452,74 @@
         <div class="buttons">
           <a class="button" href="cv_ramon_ribeiro.pdf" target="_blank" rel="noopener">Download CV</a>
           <a class="button secondary" href="#research">Research</a>
-          <a class="button secondary" href="mailto:ramonribeiropop@alu.ufc.br">Email</a>
+          <a class="button secondary" href="mailto:ramonribeiro@caen.ufc.br">Email</a>
           <a class="button secondary" href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">ORCID</a>
         </div>
       </div>
 
       <aside class="profile-card">
         <img src="ramon.png" alt="Ramon Lima Ribeiro" class="profile-photo" />
+
         <h2>Profile</h2>
         <p><strong>Institution:</strong> Federal University of Ceará, CAEN Graduate Program in Economics</p>
         <p><strong>Advisor:</strong> Christiano Modesto Penna</p>
         <p><strong>Fields:</strong> Development Economics; Regional and Urban Economics; Applied Econometrics; Public Policy</p>
         <p><strong>Tools:</strong> R, Python, Julia, Stata, SQL, LaTeX</p>
+
+        <h3>Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:ramonribeiro@caen.ufc.br">ramonribeiro@caen.ufc.br</a></p>
+        <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">0009-0003-5735-8484</a></p>
+        <p><strong>Location:</strong> Fortaleza, Ceará, Brazil</p>
       </aside>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-title">
+        <h2>Education</h2>
+        <p class="section-intro">
+          Graduate and undergraduate training in economics at the Federal University of Ceará.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="item">
+          <h4>M.Sc. in Economics</h4>
+          <p class="meta">CAEN Graduate Program in Economics, Federal University of Ceará · 2025–2026</p>
+          <p>Advisor: Christiano Modesto Penna.</p>
+        </div>
+
+        <div class="item">
+          <h4>B.Sc. in Economics</h4>
+          <p class="meta">Federal University of Ceará · 2021–2025</p>
+          <p>Graduated summa cum laude.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors" class="section">
+      <div class="section-title">
+        <h2>Honors and Fellowships</h2>
+        <p class="section-intro">
+          Academic honors and competitive fellowships supporting graduate training and applied research.
+        </p>
+      </div>
+
+      <div class="compact-list">
+        <article class="compact-paper">
+          <h4>Summa cum laude</h4>
+          <p class="meta">B.Sc. in Economics, Federal University of Ceará</p>
+        </article>
+
+        <article class="compact-paper">
+          <h4>CAPES Graduate Fellowship</h4>
+          <p class="meta">M.Sc. in Economics, CAEN Graduate Program in Economics</p>
+        </article>
+
+        <article class="compact-paper">
+          <h4>FUNCAP Fellowship</h4>
+          <p class="meta">Ceará State Development Agency (ADECE)</p>
+        </article>
+      </div>
     </section>
 
     <section id="research" class="section">
@@ -603,13 +668,13 @@
         <div class="item">
           <h4>Researcher</h4>
           <p class="meta">Ceará State Development Agency (ADECE) · 2025–present</p>
-          <p>Applied econometric research on regional development, industrial policy, and input-output analysis.</p>
+          <p>FUNCAP Fellow. Applied econometric research on regional development, industrial policy, and input-output analysis.</p>
         </div>
 
         <div class="item">
           <h4>Research Assistant</h4>
-          <p class="meta">Education economics and public policy evaluation project · Jan. 2026–present</p>
-          <p>Research project involving collaborators affiliated with the University of Notre Dame and the University of Pennsylvania.</p>
+          <p class="meta">University of Notre Dame / Kellogg Grant-supported project · Jan. 2026–present</p>
+          <p>Education economics and public policy evaluation project with Virna Vidal Menezes and Ângelo dos Santos.</p>
         </div>
       </div>
     </section>
@@ -658,21 +723,6 @@
           <h4>Text-Based Financial Stress and Sovereign Risk in Brazil</h4>
           <p class="meta">Co-author · Accepted for presentation at the XXVI Brazilian Finance Meeting — EBFin 2026</p>
         </article>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p class="section-intro">
-          I am preparing applications for Ph.D. programs in Economics, with interests in development economics, regional economics, applied microeconometrics, and public policy.
-        </p>
-      </div>
-
-      <div class="item">
-        <p><strong>Email:</strong> <a href="mailto:ramonribeiropop@alu.ufc.br">ramonribeiropop@alu.ufc.br</a></p>
-        <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">0009-0003-5735-8484</a></p>
-        <p><strong>Location:</strong> Fortaleza, Ceará, Brazil</p>
       </div>
     </section>
   </main>
