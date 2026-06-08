@@ -828,7 +828,8 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     function toggleAbstract(button) {
-      const abstract = button.nextElementSibling;
+      const paper = button.closest(".paper");
+      const abstract = paper.querySelector(".abstract");
       const isOpen = abstract.classList.toggle("open");
       button.textContent = isOpen ? "Hide abstract" : "Show abstract";
     }
