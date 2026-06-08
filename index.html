@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ramon Lima Ribeiro — M.Sc. student in Economics at CAEN/UFC. Development economics, regional economics, applied econometrics, and public policy." />
+  <title>Ramon Lima Ribeiro</title>
+
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --text: #1d1d1f;
+      --muted: #5f6368;
+      --line: #d9d6cf;
+      --navy: #082f49;
+      --navy-2: #0b3f63;
+      --accent: #1f4e79;
+      --card: #ffffff;
+      --soft: #eef3f7;
+      --soft-2: #f3f0ea;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.62;
+    }
+
+    a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 0.1px;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 15px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .hero {
+      padding: 18px 0 40px;
+      display: grid;
+      grid-template-columns: 1.42fr 0.82fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .hero-text {
+      padding-top: 18px;
+    }
+
+    .eyebrow {
+      color: var(--navy);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 3.9vw, 48px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -0.9px;
+      white-space: nowrap;
+    }
+
+    .position {
+      margin: 0 0 6px;
+      color: var(--navy);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .affiliation {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+    }
+
+    .bio {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 0 20px;
+    }
+
+    .research-interests {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 11px 15px;
+      border-radius: 999px;
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .button:hover {
+      color: #fff;
+      background: var(--navy-2);
+      border-color: var(--navy-2);
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    .button.secondary:hover {
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.05);
+      margin-top: 0;
+      font-size: 14.5px;
+    }
+
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 0 18px;
+      border: 1px solid var(--line);
+      background: var(--soft-2);
+    }
+
+    .profile-card h2 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .profile-card h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+      color: var(--navy);
+      letter-spacing: 0;
+    }
+
+    .profile-card p {
+      margin: 8px 0;
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    .section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-title {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 0;
+      letter-spacing: -0.35px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin: 34px 0 16px;
+      letter-spacing: -0.2px;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    .paper-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .paper,
+    .item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .paper h4,
+    .item h4 {
+      font-size: 20px;
+      line-height: 1.28;
+      margin: 0 0 9px;
+      letter-spacing: -0.15px;
+    }
+
+    .meta {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--soft);
+      border: 1px solid #d6e0e8;
+      border-radius: 999px;
+      padding: 5px 9px;
+      margin: 4px 4px 0 0;
+    }
+
+    .abstract-toggle {
+      display: block;
+      width: max-content;
+      margin-top: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .abstract-toggle:hover {
+      background: var(--navy-2);
+      border-color: var(--navy-2);
+      color: #ffffff;
+    }
+
+    .abstract {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      color: #383b3f;
+      display: none;
+    }
+
+    .abstract.open {
+      display: block;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .compact-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .compact-paper {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+
+    .compact-paper h4 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.28;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 36px 0 46px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      h1 {
+        white-space: normal;
+        font-size: clamp(36px, 8vw, 48px);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 14px;
+      }
+
+      .hero,
+      .section-title,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-text {
+        padding-top: 0;
+      }
+
+      .profile-photo {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+      align-items: center;
+    }
+
+    .paper-actions .abstract-toggle {
+      margin-top: 0;
+    }
+
+    .data-code {
+      display: inline-block;
+      width: max-content;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      background: transparent;
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      padding: 8px 14px;
+    }
+
+    .data-code:hover {
+      background: var(--navy);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .topic-grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .topic-card {
+      background: var(--soft-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topic-card h5 {
+      margin: 0 0 7px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .references {
+      margin: 16px 0 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .topic-grid,
+      .topic-grid.four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topic-grid,
+      .topic-grid.four {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">Ramon Lima Ribeiro</div>
+      <div class="nav-links">
+        <a href="#education">Education</a>
+        <a href="coursework.html">Coursework</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#honors">Honors</a>
+        <a href="cv_ramon_ribeiro.pdf" target="_blank" rel="noopener">CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">M.Sc. Student in Economics · CAEN/UFC</div>
+        <h1>Ramon Lima Ribeiro</h1>
+
+        <p class="position">M.Sc. Student in Economics</p>
+        <p class="affiliation">CAEN Graduate Program in Economics, Federal University of Ceará</p>
+
+        <p class="bio">
+          I am an M.Sc. student in Economics at the Federal University of Ceará. My research studies regional development, public finance, infrastructure, inequality, education, and place-based policy in Brazil.
+        </p>
+
+        <p class="research-interests">
+          <strong>Research interests:</strong> Development Economics; Regional and Urban Economics; Applied Econometrics; Public Policy.
+        </p>
+
+        <div class="buttons">
+          <a class="button" href="cv_ramon_ribeiro.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="button secondary" href="#research">Research</a>
+          <a class="button secondary" href="mailto:ramon_ribeiro@caen.ufc.br">Email</a>
+          <a class="button secondary" href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">ORCID</a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <img src="ramon.png" alt="Ramon Lima Ribeiro" class="profile-photo" />
+
+        <h2>Profile</h2>
+        <p><strong>Institution:</strong> Federal University of Ceará, CAEN Graduate Program in Economics</p>
+        <p><strong>Advisor:</strong> Christiano Modesto Penna</p>
+        <p><strong>Fields:</strong> Development Economics; Regional and Urban Economics; Applied Econometrics; Public Policy</p>
+        <p><strong>Tools:</strong> R, Python, Julia, Stata, SQL, LaTeX</p>
+
+        <h3>Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:ramon_ribeiro@caen.ufc.br">ramon_ribeiro@caen.ufc.br</a></p>
+        <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">0009-0003-5735-8484</a></p>
+        <p><strong>Location:</strong> Fortaleza, Ceará, Brazil</p>
+      </aside>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-title">
+        <h2>Education</h2>
+        <p class="section-intro">
+          Graduate and undergraduate training in economics at the Federal University of Ceará.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="item">
+          <h4>M.Sc. in Economics</h4>
+          <p class="meta">CAEN Graduate Program in Economics, Federal University of Ceará · 2025–2027 expected</p>
+          <p>Advisor: Christiano Modesto Penna.</p>
+          <p>Current GPA: 8.7/10.0.</p>
+          <p>Selected graduate coursework is summarized on the <a href="coursework.html">Graduate Coursework</a> page.</p>
+        </div>
+
+        <div class="item">
+          <h4>B.Sc. in Economics</h4>
+          <p class="meta">Federal University of Ceará · 2021–2025</p>
+          <p>Graduated summa cum laude.</p>
+          <p>Final GPA: 9.1/10.0.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <div class="section-title">
+        <h2>Research</h2>
+        <p class="section-intro">
+          My research studies regional development, public finance, infrastructure, inequality, education, climate adaptation, and the economic effects of place-based policies in Brazil.
+        </p>
+      </div>
+
+      <h3>Under Review</h3>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h4>Place-Based Development Credit and Productive Transformation in Lagging Regions: Evidence from Brazil’s Northeast Development Fund</h4>
+          <p class="meta">Solo-authored manuscript · Under review at <em>Regional Studies</em></p>
+          <span class="tag">Regional development</span>
+          <span class="tag">Development finance</span>
+          <span class="tag">Shift-share designs</span>
+          <span class="tag">Brazil</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+            <a class="data-code" href="https://zenodo.org/records/20450675" target="_blank" rel="noopener">Data &amp; code</a>
+          </div>
+          <div class="abstract">
+            This paper studies whether place-based development credit transforms lagging local economies or mainly expands their scale. I examine Brazil’s Northeast Development Fund (FNE), a large regional credit program targeted to the SUDENE area, using a municipality-year panel and a shift-share exposure measure based on predetermined sectoral value-added shares and external sector-year FNE credit shocks. The results show that predicted exposure increases formal employment, payroll, establishments, private and industrial value added, and GDP per capita, with particularly strong extensive-margin effects in low-capacity municipalities. The central finding is that productive conversion is capacity-dependent: value added per worker rises in higher-capacity municipalities, while low-capacity municipalities experience expansion without proportional productivity gains. The paper argues that regional development credit can be effective at formalization and scale, but that absorptive capacity shapes whether credit-induced expansion becomes productive transformation.
+          </div>
+        </article>
+
+        <article class="paper">
+          <h4>Annual Municipal Inequality in Brazil Between Censuses: A Grouped Administrative Gini, 2012–2023</h4>
+          <p class="meta">Solo-authored manuscript · Under review at <em>Review of Income and Wealth</em></p>
+          <span class="tag">Inequality</span>
+          <span class="tag">Administrative data</span>
+          <span class="tag">Municipal Brazil</span>
+          <span class="tag">Measurement</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+            <a class="data-code" href="https://zenodo.org/records/20054997" target="_blank" rel="noopener">Data &amp; code</a>
+          </div>
+          <div class="abstract">
+            This paper develops an annual municipal inequality indicator for Brazil from 2012 to 2023 using a grouped-distribution approach built from public administrative records, official population statistics, and municipal economic diagnostics. Rather than predicting inequality from municipal covariates, the paper reconstructs a municipality-year income distribution from ordered grouped cells and computes a Lorenz-based grouped Gini. The lower tail is anchored in Cadastro Único, formal labor income is organized through RAIS, pension income is projected onto the same income grid, and uncovered resources are incorporated through an explicit residual-income rule. The raw index is calibrated once to the 2010 municipal benchmark. The resulting series documents persistent municipal inequality, stable regional ordering, and strong spatial continuity in the geography of change, while robustness exercises show that alternative assumptions affect levels more than temporal and territorial patterns.
+          </div>
+        </article>
+
+        <article class="paper">
+          <h4>Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil</h4>
+          <p class="meta">Pedro Igor Araújo de Oliveira, Ramon Lima Ribeiro, and Victor Lira Stilita · Under review at <em>International Economics and Economic Policy</em></p>
+          <span class="tag">Monetary policy</span>
+          <span class="tag">Credit default</span>
+          <span class="tag">Distributional effects</span>
+          <span class="tag">Firm size</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+          </div>
+          <div class="abstract">
+            This paper examines heterogeneous monetary transmission to credit default in Brazil using monthly Central Bank data from 2012 to 2024 disaggregated by income bracket, firm size, and state. The analysis documents that interest-rate movements predict subsequent default deterioration unevenly across borrowers. For households, the strongest responses are concentrated in the broader central segment of the income distribution, especially lower-middle and middle-income borrowers, with effects becoming visible after several months. For firms, small businesses show the clearest and strongest responses, while large firms remain more insulated. Additional mechanism exercises based on occupational, sectoral, and product-level splits suggest that firm-side heterogeneity is closely related to credit segmentation and exposure to free and short-term credit. The paper contributes reduced-form evidence on the distributional burden of monetary tightening in an emerging market credit system.
+          </div>
+        </article>
+      </div>
+
+      <h3>Submitted</h3>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h4>Do Development Banks Finance Climate Adaptation? Drought Shocks and Climate-Relevant Credit in Brazil’s Semi-Arid Region</h4>
+          <p class="meta">Ramon Lima Ribeiro and Pedro Igor Araújo de Oliveira · Submitted to <em>Climate Policy</em></p>
+          <span class="tag">Climate finance</span>
+          <span class="tag">Development banks</span>
+          <span class="tag">Drought</span>
+          <span class="tag">Public credit</span>
+          <span class="tag">Agricultural resilience</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+            <a class="data-code" href="https://zenodo.org/records/20450361" target="_blank" rel="noopener">Data &amp; code</a>
+          </div>
+          <div class="abstract">
+            This paper studies when public development credit can credibly be treated as climate adaptation finance. We examine Brazil’s Northeast Constitutional Financing Fund (FNE), a large public development-credit instrument operating in one of the world’s most drought-prone semi-arid regions, and separate direct climate credit from non-climate credit and generic rural credit. Combining municipal credit records, rainfall data, and agricultural outcomes, the paper estimates whether accumulated exposure to climate-relevant credit attenuates agricultural downside risk under unexpected drought shocks. The evidence indicates that direct climate credit is more concentrated in historically drier municipalities and reduces severe agricultural-collapse risk under drought innovations in the semi-arid region, while non-climate credit and generic rural credit do not reproduce the same protective pattern. The paper argues that adaptation-finance tracking should combine conservative taxonomies, territorial targeting, and observed loss reduction under climate shocks.
+          </div>
+        </article>
+
+        <article class="paper">
+          <h4>When Water Arrives: Large-Scale Infrastructure and Drought Resilience in the Brazilian Semi-Arid</h4>
+          <p class="meta">Ramon Lima Ribeiro, Christiano Modesto Penna, and Flavio Ataliba Barreto · Submitted to <em>World Development</em></p>
+          <span class="tag">Water infrastructure</span>
+          <span class="tag">Climate adaptation</span>
+          <span class="tag">Drought resilience</span>
+          <span class="tag">Human capital</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+            <a class="data-code" href="https://zenodo.org/records/20586637" target="_blank" rel="noopener">Data &amp; code</a>
+          </div>
+          <div class="abstract">
+            This paper studies whether Brazil’s São Francisco River Integration Project weakened the drought-damage function faced by municipalities in the Brazilian semi-arid. The empirical design compares immediate and later beneficiaries within the official project universe, exploiting staged operational access after 2017 and interacting drought intensity with active exposure and historical drought vulnerability. The analysis follows drought transmission across three theory-based margins: agricultural livelihoods, severe child-health outcomes, and upper-secondary schooling. Early exposure attenuated drought-related losses in agricultural production value, reduced severe child-health outcomes linked to infectious and parasitic mortality and dehydration hospitalizations, and lowered upper-secondary dropout in drought-exposed years. The paper argues that the development value of large water infrastructure is better captured by resilience during adverse rainfall states than by average growth effects alone.
+          </div>
+        </article>
+
+      </div>
+
+      <h3>Selected Working Papers</h3>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h4>Port-Led Industrialization and Local Economic Development: Evidence from the Pecém Industrial and Port Complex in Brazil</h4>
+          <p class="meta">With Roberto Tatiwa Ferreira · Selected working paper</p>
+          <span class="tag">Port infrastructure</span>
+          <span class="tag">Industrialization</span>
+          <span class="tag">Generalized synthetic control</span>
+          <span class="tag">Regional development</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+          </div>
+          <div class="abstract">
+            This paper estimates the local effects of the Pecém Industrial and Port Complex, a major port-industrial infrastructure project implemented in Northeast Brazil to attract industry and reshape the productive structure of a lagging region. We use a generalized synthetic control design to construct counterfactual trajectories for the two directly treated municipalities, Caucaia and São Gonçalo do Amarante, using the remaining municipalities of Ceará as donor units. The baseline window isolates the initial port-infrastructure phase before the Export Processing Zone began operating. The results indicate large positive effects on GDP per capita and industrial gross value added per capita, with the industrial response becoming stronger after an investment-maturation period. Robustness checks using alternative treatment dates, donor pools, and placebo diagnostics support the interpretation that Pecém generated a port-led industrialization process rather than only a broad short-run local-demand shock.
+          </div>
+        </article>
+
+        <article class="paper">
+          <h4>A Thorough Analysis of the Brazilian National Inclusion Policy for Students with Disability</h4>
+          <p class="meta">With Virna Vidal Menezes and Ângelo dos Santos · Selected working paper</p>
+          <span class="tag">Education policy</span>
+          <span class="tag">Disability inclusion</span>
+          <span class="tag">School Census</span>
+          <span class="tag">Brazil</span>
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+          </div>
+          <div class="abstract">
+            This project analyzes Brazil’s National Policy of Special Education, implemented after 2008 to promote the inclusion of students with disabilities in regular public schools and expand specialized support through resource rooms. The analysis uses Brazilian School Census microdata from 2007 to 2017 to document changes in access, school composition, specialized infrastructure, and the enrollment trajectories of students with disabilities. A central distinction is between the inclusion mandate, which affected all schools, and the uneven expansion of Special Resource Classrooms, which provided schools with additional infrastructure and pedagogical support. The project first characterizes the national diffusion of inclusive education across municipalities, schools, and students, and then motivates subsequent causal analysis of the effects of inclusion and specialized support on students with disabilities and their peers.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p class="section-intro">
+          Research experience in applied econometrics, regional development, industrial policy, input-output analysis, education economics, and public policy evaluation.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="item">
+          <h4>Researcher</h4>
+          <p class="meta">Ceará State Development Agency (ADECE) · 2025–present</p>
+          <p>FUNCAP Fellow. Applied econometric research on regional development, industrial policy, and input-output analysis.</p>
+        </div>
+
+        <div class="item">
+          <h4>Research Assistant</h4>
+          <p class="meta">University of Notre Dame / Kellogg Grant-supported project · Jan. 2026–present</p>
+          <p>Education economics and public policy evaluation project with Virna Vidal Menezes and Ângelo dos Santos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="section">
+      <div class="section-title">
+        <h2>Teaching and service</h2>
+        <p class="section-intro">
+          Teaching and academic leadership experience at the Federal University of Ceará.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="item">
+          <h4>Teaching Assistant</h4>
+          <p class="meta">Federal University of Ceará · 2022–2025</p>
+          <ul>
+            <li>Mathematical Economics</li>
+            <li>Economic Statistics</li>
+            <li>Economic Growth Theory</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h4>PET Economics Program</h4>
+          <p class="meta">Federal University of Ceará · 2022–2025</p>
+          <ul>
+            <li>President</li>
+            <li>Head of Research</li>
+            <li>Member</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="conferences" class="section">
+      <div class="section-title">
+        <h2>Conferences</h2>
+        <p class="section-intro">
+          Selected conference presentations and accepted papers.
+        </p>
+      </div>
+
+      <div class="compact-list">
+        <article class="compact-paper">
+          <h4>Text-Based Financial Stress and Sovereign Risk in Brazil</h4>
+          <p class="meta">Co-author · Accepted for presentation at the XXVI Brazilian Finance Meeting — EBFin 2026</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="honors" class="section">
+      <div class="section-title">
+        <h2>Honors and Fellowships</h2>
+        <p class="section-intro">
+          Academic honors and competitive fellowships supporting graduate training and applied research.
+        </p>
+      </div>
+
+      <div class="compact-list">
+        <article class="compact-paper">
+          <h4>Summa cum laude</h4>
+          <p class="meta">B.Sc. in Economics, Federal University of Ceará</p>
+        </article>
+
+        <article class="compact-paper">
+          <h4>CAPES Graduate Fellowship</h4>
+          <p class="meta">M.Sc. in Economics, CAEN Graduate Program in Economics</p>
+        </article>
+
+        <article class="compact-paper">
+          <h4>FUNCAP Fellowship</h4>
+          <p class="meta">Ceará State Development Agency (ADECE)</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Ramon Lima Ribeiro. Last updated May 2026.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleAbstract(button) {
+      const abstract = button.nextElementSibling;
+      const isOpen = abstract.classList.toggle("open");
+      button.textContent = isOpen ? "Hide abstract" : "Show abstract";
+    }
+  </script>
+</body>
+</html>
