@@ -20,6 +20,29 @@
       --card: #ffffff;
       --soft: #eef3f7;
       --soft-2: #f3f0ea;
+      --header-bg: rgba(247, 247, 244, 0.96);
+      --shadow: 0 16px 40px rgba(0,0,0,0.05);
+      --abstract-text: #383b3f;
+      --tag-line: #d6e0e8;
+      --button-hover-text: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --line: #334155;
+      --navy: #93c5fd;
+      --navy-2: #bfdbfe;
+      --accent: #bfdbfe;
+      --card: #111827;
+      --soft: #172554;
+      --soft-2: #1e293b;
+      --header-bg: rgba(15, 23, 42, 0.96);
+      --shadow: 0 16px 40px rgba(0,0,0,0.28);
+      --abstract-text: #cbd5e1;
+      --tag-line: #1e40af;
+      --button-hover-text: #0f172a;
     }
 
     * {
@@ -28,6 +51,10 @@
 
     html {
       scroll-behavior: smooth;
+    }
+
+    [id] {
+      scroll-margin-top: 92px;
     }
 
     body {
@@ -50,7 +77,7 @@
 
     header {
       border-bottom: 1px solid var(--line);
-      background: rgba(247, 247, 244, 0.96);
+      background: var(--header-bg);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -76,10 +103,94 @@
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 10px;
       font-size: 15px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-group {
+      position: relative;
+    }
+
+    .nav-trigger,
+    .theme-toggle {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 11px;
+      cursor: pointer;
+    }
+
+    .nav-trigger::after {
+      content: "▾";
+      font-size: 10px;
+      margin-left: 6px;
+    }
+
+    .nav-trigger:hover,
+    .nav-trigger:focus,
+    .nav-group.open .nav-trigger,
+    .theme-toggle:hover,
+    .theme-toggle:focus {
+      border-color: var(--line);
+      background: var(--card);
+      outline: none;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 220px;
+      display: none;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      padding: 8px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      z-index: 20;
+    }
+
+    .nav-group:hover .dropdown-menu,
+    .nav-group:focus-within .dropdown-menu,
+    .nav-group.open .dropdown-menu {
+      display: grid;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+      background: var(--soft);
+      color: var(--navy);
+      text-decoration: none;
+      outline: none;
+    }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
     }
 
     .container {
@@ -156,33 +267,40 @@
       margin-top: 28px;
     }
 
-    .button {
+    .button,
+    .button.secondary,
+    .abstract-toggle,
+    .data-code {
       display: inline-block;
+      width: max-content;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
       font-weight: 700;
-      padding: 11px 15px;
-      border-radius: 999px;
-      border: 1px solid var(--navy);
-      background: var(--navy);
-      color: #fff;
-    }
-
-    .button:hover {
-      color: #fff;
-      background: var(--navy-2);
-      border-color: var(--navy-2);
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background: transparent;
       color: var(--navy);
+      background: transparent;
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      cursor: pointer;
     }
 
-    .button.secondary:hover {
+    .button,
+    .button.secondary {
+      font-size: 14px;
+      padding: 11px 15px;
+    }
+
+    .abstract-toggle,
+    .data-code {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+
+    .button:hover,
+    .button.secondary:hover,
+    .abstract-toggle:hover,
+    .data-code:hover {
       background: var(--navy);
-      color: #fff;
+      color: var(--button-hover-text);
+      border-color: var(--navy);
       text-decoration: none;
     }
 
@@ -191,7 +309,7 @@
       border: 1px solid var(--line);
       border-radius: 22px;
       padding: 24px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow);
       margin-top: 0;
       font-size: 14.5px;
     }
@@ -295,7 +413,7 @@
       font-weight: 700;
       color: var(--navy);
       background: var(--soft);
-      border: 1px solid #d6e0e8;
+      border: 1px solid var(--tag-line);
       border-radius: 999px;
       padding: 5px 9px;
       margin: 4px 4px 0 0;
@@ -303,23 +421,7 @@
 
     .abstract-toggle {
       display: block;
-      width: max-content;
       margin-top: 14px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: #ffffff;
-      background: var(--navy);
-      border: 1px solid var(--navy);
-      border-radius: 999px;
-      padding: 8px 14px;
-      cursor: pointer;
-    }
-
-    .abstract-toggle:hover {
-      background: var(--navy-2);
-      border-color: var(--navy-2);
-      color: #ffffff;
     }
 
     .abstract {
@@ -328,7 +430,7 @@
       border-top: 1px solid var(--line);
       font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
-      color: #383b3f;
+      color: var(--abstract-text);
       display: none;
     }
 
@@ -395,7 +497,33 @@
 
       .nav-links {
         justify-content: flex-start;
-        gap: 14px;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .nav-group {
+        width: 100%;
+      }
+
+      .nav-trigger {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-color: var(--line);
+        background: var(--card);
+      }
+
+      .dropdown-menu {
+        position: static;
+        min-width: 100%;
+        margin-top: 8px;
+        box-shadow: none;
+      }
+
+      .theme-toggle {
+        border-color: var(--line);
+        background: var(--card);
       }
 
       .hero,
@@ -429,25 +557,6 @@
     .paper-actions .abstract-toggle {
       margin-top: 0;
     }
-
-    .data-code {
-      display: inline-block;
-      width: max-content;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy);
-      background: transparent;
-      border: 1px solid var(--navy);
-      border-radius: 999px;
-      padding: 8px 14px;
-    }
-
-    .data-code:hover {
-      background: var(--navy);
-      color: #ffffff;
-      text-decoration: none;
-    }
   </style>
 </head>
 
@@ -455,15 +564,40 @@
   <header>
     <nav class="nav">
       <div class="brand">Ramon Lima Ribeiro</div>
-      <div class="nav-links">
-        <a href="#education">Education</a>
-        <a href="coursework.html">Coursework</a>
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#conferences">Conferences</a>
-        <a href="#honors">Honors</a>
-        <a href="cv_ramon_ribeiro.pdf" target="_blank" rel="noopener">CV</a>
+      <div class="nav-links" aria-label="Main navigation">
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false">Profile</button>
+          <div class="dropdown-menu">
+            <a href="#education">Education</a>
+            <a href="coursework.html">Coursework</a>
+            <a href="#experience">Experience</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#honors">Honors</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false">Research</button>
+          <div class="dropdown-menu">
+            <a href="#research">Overview</a>
+            <a href="#under-review">Under Review</a>
+            <a href="#submitted">Submitted</a>
+            <a href="#selected-working-papers">Selected Working Papers</a>
+            <a href="#conferences">Conferences</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false">Materials</button>
+          <div class="dropdown-menu">
+            <a href="cv_ramon_ribeiro.pdf" target="_blank" rel="noopener">CV</a>
+            <a href="When_Water_Arrives_preprint.pdf" target="_blank" rel="noopener">Writing Sample</a>
+            <a href="mailto:ramon_ribeiro@caen.ufc.br">Email</a>
+            <a href="https://orcid.org/0009-0003-5735-8484" target="_blank" rel="noopener">ORCID</a>
+          </div>
+        </div>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
       </div>
     </nav>
   </header>
@@ -478,7 +612,7 @@
         <p class="affiliation">CAEN Graduate Program in Economics, Federal University of Ceará</p>
 
         <p class="bio">
-          I am an M.Sc. student in Economics at the Federal University of Ceará. My research studies regional development, public finance, infrastructure, inequality, education, and place-based policy in Brazil.
+          I am an M.Sc. student in Economics at CAEN/UFC and a researcher at the Ceará State Development Agency (ADECE). My research studies how public policy, development credit, and infrastructure shape development and resilience in lagging regions. Empirically, my work focuses on Brazil and combines applied econometrics, quasi-experimental policy evaluation, administrative records, and geospatial data. I have solo-authored manuscripts under peer review, a revise-and-resubmit article, and research assistant experience on a University of Notre Dame/Kellogg-supported project.
         </p>
 
         <p class="research-interests">
@@ -544,7 +678,7 @@
         </p>
       </div>
 
-      <h3>Under Review</h3>
+      <h3 id="under-review">Under Review</h3>
 
       <div class="paper-list">
         <article class="paper">
@@ -599,7 +733,7 @@
         </article>
       </div>
 
-      <h3>Submitted</h3>
+      <h3 id="submitted">Submitted</h3>
 
       <div class="paper-list">
         <article class="paper">
@@ -638,7 +772,7 @@
         </article>
       </div>
 
-      <h3>Selected Working Papers</h3>
+      <h3 id="selected-working-papers">Selected Working Papers</h3>
 
       <div class="paper-list">
         <article class="paper">
@@ -783,6 +917,64 @@
       const isOpen = abstract.classList.toggle("open");
       button.textContent = isOpen ? "Hide abstract" : "Show abstract";
     }
+
+    const themeToggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    function setTheme(theme) {
+      if (theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeToggle.textContent = "☀";
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        themeToggle.textContent = "☾";
+      }
+    }
+
+    setTheme(savedTheme === "dark" ? "dark" : "light");
+
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", nextTheme);
+      setTheme(nextTheme);
+    });
+
+    const navGroups = document.querySelectorAll(".nav-group");
+    const navTriggers = document.querySelectorAll(".nav-trigger");
+
+    function closeMenus() {
+      navGroups.forEach((group) => {
+        group.classList.remove("open");
+        const trigger = group.querySelector(".nav-trigger");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    navTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const group = trigger.closest(".nav-group");
+        const isOpen = group.classList.contains("open");
+
+        closeMenus();
+
+        if (!isOpen) {
+          group.classList.add("open");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    document.querySelectorAll(".dropdown-menu a").forEach((link) => {
+      link.addEventListener("click", closeMenus);
+    });
+
+    document.addEventListener("click", closeMenus);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenus();
+    });
   </script>
 </body>
 </html>
