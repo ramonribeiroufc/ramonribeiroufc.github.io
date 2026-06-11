@@ -159,10 +159,15 @@
       z-index: 20;
     }
 
-    .nav-group:hover .dropdown-menu,
-    .nav-group:focus-within .dropdown-menu,
     .nav-group.open .dropdown-menu {
       display: grid;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .nav-group:hover .dropdown-menu,
+      .nav-group:focus-within .dropdown-menu {
+        display: grid;
+      }
     }
 
     .dropdown-menu a {
@@ -482,6 +487,18 @@
       font-size: 14px;
     }
 
+    .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+      align-items: center;
+    }
+
+    .paper-actions .abstract-toggle {
+      margin-top: 0;
+    }
+
     @media (max-width: 980px) {
       h1 {
         white-space: normal;
@@ -490,38 +507,59 @@
     }
 
     @media (max-width: 850px) {
+      [id] {
+        scroll-margin-top: 112px;
+      }
+
       .nav {
         align-items: flex-start;
         flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px;
       }
 
       .nav-links {
-        justify-content: flex-start;
-        gap: 10px;
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) 38px;
+        gap: 8px;
+        position: relative;
       }
 
       .nav-group {
-        width: 100%;
+        position: static;
+        min-width: 0;
       }
 
       .nav-trigger {
         width: 100%;
+        min-height: 36px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: center;
+        padding: 8px 6px;
+        font-size: 13px;
         border-color: var(--line);
         background: var(--card);
       }
 
+      .nav-trigger::after {
+        margin-left: 4px;
+      }
+
       .dropdown-menu {
-        position: static;
-        min-width: 100%;
-        margin-top: 8px;
-        box-shadow: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: 0;
+        box-shadow: var(--shadow);
       }
 
       .theme-toggle {
+        width: 38px;
+        height: 36px;
         border-color: var(--line);
         background: var(--card);
       }
@@ -544,18 +582,6 @@
         width: 130px;
         height: 130px;
       }
-    }
-
-    .paper-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-      align-items: center;
-    }
-
-    .paper-actions .abstract-toggle {
-      margin-top: 0;
     }
   </style>
 </head>
@@ -933,11 +959,13 @@
 
     setTheme(savedTheme === "dark" ? "dark" : "light");
 
-    themeToggle.addEventListener("click", () => {
+    themeToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
       const currentTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
       const nextTheme = currentTheme === "dark" ? "light" : "dark";
       localStorage.setItem("theme", nextTheme);
       setTheme(nextTheme);
+      closeMenus();
     });
 
     const navGroups = document.querySelectorAll(".nav-group");
@@ -947,22 +975,32 @@
       navGroups.forEach((group) => {
         group.classList.remove("open");
         const trigger = group.querySelector(".nav-trigger");
-        if (trigger) trigger.setAttribute("aria-expanded", "false");
+        if (trigger) {
+          trigger.setAttribute("aria-expanded", "false");
+          trigger.blur();
+        }
       });
     }
 
     navTriggers.forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.stopPropagation();
+
         const group = trigger.closest(".nav-group");
-        const isOpen = group.classList.contains("open");
+        const wasOpen = group.classList.contains("open");
 
         closeMenus();
 
-        if (!isOpen) {
+        if (!wasOpen) {
           group.classList.add("open");
           trigger.setAttribute("aria-expanded", "true");
         }
+      });
+    });
+
+    document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+      menu.addEventListener("click", (event) => {
+        event.stopPropagation();
       });
     });
 
