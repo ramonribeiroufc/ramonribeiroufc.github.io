@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,9 @@
       --abstract-text: #383b3f;
       --tag-line: #d6e0e8;
       --button-hover-text: #ffffff;
+      --rr-bg: #fff3cd;
+      --rr-text: #7a4f00;
+      --rr-line: #f0c36a;
     }
 
     [data-theme="dark"] {
@@ -43,6 +47,9 @@
       --abstract-text: #cbd5e1;
       --tag-line: #1e40af;
       --button-hover-text: #0f172a;
+      --rr-bg: #3a2a08;
+      --rr-text: #fde68a;
+      --rr-line: #a16207;
     }
 
     * {
@@ -424,6 +431,21 @@
       margin: 4px 4px 0 0;
     }
 
+    .status-rr {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--rr-text);
+      background: var(--rr-bg);
+      border: 1px solid var(--rr-line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      margin: 4px 4px 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
     .abstract-toggle {
       display: block;
       margin-top: 14px;
@@ -638,7 +660,7 @@
         <p class="affiliation">CAEN Graduate Program in Economics, Federal University of Ceará</p>
 
         <p class="bio">
-          I am an M.Sc. student in Economics at CAEN/UFC and a researcher at the Ceará State Development Agency (ADECE). My research studies how public policy, development credit, and infrastructure shape development and resilience in lagging regions. Empirically, my work focuses on Brazil and combines applied econometrics, quasi-experimental policy evaluation, administrative records, and geospatial data. I have solo-authored manuscripts under peer review, a revise-and-resubmit article, and research assistant experience on a University of Notre Dame/Kellogg-supported project.
+          I am an M.Sc. student in Economics at CAEN/UFC and a researcher at the Ceará State Development Agency (ADECE). My research studies how public policy, development credit, and infrastructure shape regional development, resilience, and productive transformation in lagging regions. I use applied microeconometrics, quasi-experimental policy evaluation, administrative records, and geospatial data. My current work includes solo-authored manuscripts under peer review, a revise-and-resubmit article, and research assistant experience on a University of Notre Dame/Kellogg-supported project.
         </p>
 
         <p class="research-interests">
@@ -659,7 +681,7 @@
 
         <h2>Profile</h2>
         <p><strong>Institution:</strong> Federal University of Ceará, CAEN Graduate Program in Economics</p>
-        <p><strong>Advisor:</strong> Christiano Modesto Penna</p>
+        <p><strong>Advisor:</strong> <a href="https://portalibre.fgv.br/pessoa/christiano-modesto-penna" target="_blank" rel="noopener">Christiano Modesto Penna</a></p>
         <p><strong>Fields:</strong> Development Economics; Regional and Urban Economics; Applied Econometrics; Public Policy</p>
         <p><strong>Tools:</strong> R, Python, Julia, Stata, SQL, LaTeX</p>
 
@@ -682,7 +704,7 @@
         <div class="item">
           <h4>M.Sc. in Economics</h4>
           <p class="meta">CAEN Graduate Program in Economics, Federal University of Ceará · 2025–2027 expected</p>
-          <p>Advisor: Christiano Modesto Penna.</p>
+          <p>Advisor: <a href="https://portalibre.fgv.br/pessoa/christiano-modesto-penna" target="_blank" rel="noopener">Christiano Modesto Penna</a>.</p>
           <p>Current GPA: 8.7/10.0.</p>
           <p>Selected graduate coursework is summarized on the <a href="coursework.html">Graduate Coursework</a> page.</p>
         </div>
@@ -743,7 +765,8 @@
 
         <article class="paper">
           <h4>Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil</h4>
-          <p class="meta">Pedro Igor Araújo de Oliveira, Ramon Lima Ribeiro, and Victor Lira Stilita · Revise and resubmit at <em>International Economics and Economic Policy</em></p>
+          <p class="meta"><a href="https://iigor02.github.io/" target="_blank" rel="noopener">Pedro Igor Araújo de Oliveira</a>, Ramon Lima Ribeiro, and Victor Lira Stilita · Revise and resubmit at <em>International Economics and Economic Policy</em></p>
+          <span class="status-rr">Revise &amp; Resubmit</span>
           <span class="tag">Monetary policy</span>
           <span class="tag">Credit default</span>
           <span class="tag">Distributional effects</span>
@@ -764,7 +787,7 @@
       <div class="paper-list">
         <article class="paper">
           <h4>When Water Arrives: Large-Scale Infrastructure and Drought Resilience in the Brazilian Semi-Arid</h4>
-          <p class="meta">Ramon Lima Ribeiro, Christiano Modesto Penna, and Flavio Ataliba Barreto · Submitted to <em>World Development</em></p>
+          <p class="meta">Ramon Lima Ribeiro, <a href="https://portalibre.fgv.br/pessoa/christiano-modesto-penna" target="_blank" rel="noopener">Christiano Modesto Penna</a>, and <a href="https://portalibre.fgv.br/pessoa/flavio-ataliba-0" target="_blank" rel="noopener">Flavio Ataliba Barreto</a> · Submitted to <em>World Development</em></p>
           <span class="tag">Water infrastructure</span>
           <span class="tag">Climate adaptation</span>
           <span class="tag">Drought resilience</span>
@@ -772,7 +795,7 @@
           <div class="paper-actions">
             <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
             <a class="data-code" href="https://zenodo.org/records/20586637" target="_blank" rel="noopener">Data &amp; Code</a>
-            <a class="data-code" href="When_Water_Arrives_preprint.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="data-code" href="When_Water_Arrives_preprint.pdf" target="_blank" rel="noopener">Writing Sample</a>
           </div>
           <div class="abstract">
             This paper studies whether Brazil’s São Francisco River Integration Project weakened the drought-damage function faced by municipalities in the Brazilian semi-arid. The empirical design compares immediate and later beneficiaries within the official project universe, exploiting staged operational access after 2017 and interacting drought intensity with active exposure and historical drought vulnerability. The analysis follows drought transmission across three theory-based margins: agricultural livelihoods, severe child-health outcomes, and upper-secondary schooling. Early exposure attenuated drought-related losses in agricultural production value, reduced severe child-health outcomes linked to infectious and parasitic mortality and dehydration hospitalizations, and lowered upper-secondary dropout in drought-exposed years. The paper argues that the development value of large water infrastructure is better captured by resilience during adverse rainfall states than by average growth effects alone.
@@ -781,7 +804,7 @@
 
         <article class="paper">
           <h4>Do Development Banks Finance Climate Adaptation? Drought Shocks and Climate-Relevant Credit in Brazil’s Semi-Arid Region</h4>
-          <p class="meta">Ramon Lima Ribeiro and Pedro Igor Araújo de Oliveira · Submitted to <em>Climate Policy</em></p>
+          <p class="meta">Ramon Lima Ribeiro and <a href="https://iigor02.github.io/" target="_blank" rel="noopener">Pedro Igor Araújo de Oliveira</a> · Submitted to <em>Climate Policy</em></p>
           <span class="tag">Climate finance</span>
           <span class="tag">Development banks</span>
           <span class="tag">Drought</span>
@@ -818,7 +841,7 @@
 
         <article class="paper">
           <h4>A Thorough Analysis of the Brazilian National Inclusion Policy for Students with Disability</h4>
-          <p class="meta">With Virna Vidal Menezes and Ângelo dos Santos · Selected working paper</p>
+          <p class="meta">With <a href="https://www.virnavidalmenezes.com/" target="_blank" rel="noopener">Virna Vidal Menezes</a> and <a href="https://angelofgdsantos.github.io/" target="_blank" rel="noopener">Ângelo dos Santos</a> · Selected working paper</p>
           <span class="tag">Education policy</span>
           <span class="tag">Disability inclusion</span>
           <span class="tag">School Census</span>
@@ -843,15 +866,15 @@
 
       <div class="two-col">
         <div class="item">
-          <h4>Researcher</h4>
+          <h4>Research Fellow</h4>
           <p class="meta">Ceará State Development Agency (ADECE) · 2025–present</p>
-          <p>FUNCAP Fellow. Applied econometric research on regional development, industrial policy, and input-output analysis.</p>
+          <p>FUNCAP Fellow. Conduct policy-facing economic research on regional development, industrial policy, fiscal incentives, and investment attraction. Work includes applied econometric and input-output analyses to support state-level discussions on productive transformation and local economic impacts.</p>
         </div>
 
         <div class="item">
           <h4>Research Assistant</h4>
           <p class="meta">University of Notre Dame / Kellogg Grant-supported project · Jan. 2026–present</p>
-          <p>Education economics and public policy evaluation project with Virna Vidal Menezes and Ângelo dos Santos.</p>
+          <p>Support an education economics and public policy evaluation project with <a href="https://www.virnavidalmenezes.com/" target="_blank" rel="noopener">Virna Vidal Menezes</a> and <a href="https://angelofgdsantos.github.io/" target="_blank" rel="noopener">Ângelo dos Santos</a> by organizing datasets, writing reproducible code, producing empirical outputs for research papers, and conducting literature reviews.</p>
         </div>
       </div>
     </section>
@@ -1016,3 +1039,4 @@
   </script>
 </body>
 </html>
+```
