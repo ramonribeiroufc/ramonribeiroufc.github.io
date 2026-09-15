@@ -29,6 +29,9 @@
       --rr-bg: #fff3cd;
       --rr-text: #7a4f00;
       --rr-line: #f0c36a;
+      --pub-bg: #e8f5e9;
+      --pub-text: #1b5e20;
+      --pub-line: #a5d6a7;
     }
 
     [data-theme="dark"] {
@@ -50,6 +53,9 @@
       --rr-bg: #3a2a08;
       --rr-text: #fde68a;
       --rr-line: #a16207;
+      --pub-bg: #15351f;
+      --pub-text: #bbf7d0;
+      --pub-line: #2f855a;
     }
 
     * {
@@ -446,6 +452,21 @@
       letter-spacing: 0.2px;
     }
 
+    .status-pub {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--pub-text);
+      background: var(--pub-bg);
+      border: 1px solid var(--pub-line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      margin: 4px 4px 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
     .abstract-toggle {
       display: block;
       margin-top: 14px;
@@ -632,6 +653,7 @@
 
           <div class="dropdown-menu">
             <a href="#research">Overview</a>
+            <a href="#publications">Publications</a>
             <a href="#under-review">Under Review</a>
             <a href="#selected-working-papers">Selected Working Papers</a>
             <a href="#conferences">Conferences</a>
@@ -668,7 +690,7 @@
         </p>
 
         <p class="bio">
-          I am an M.Sc. student in Economics at CAEN/UFC and a researcher at the Ceará State Development Agency (ADECE). My research studies how public policy, development credit, and infrastructure shape regional development, resilience, and productive transformation in lagging regions. I use applied microeconometrics, quasi-experimental policy evaluation, administrative records, and geospatial data. My current work includes a solo-authored manuscript in major revisions at <em>Regional Studies</em>, other solo-authored manuscripts under peer review, a coauthored article in minor revisions, and research assistant experience on a University of Notre Dame/Kellogg-supported project.
+          I am an M.Sc. student in Economics at CAEN/UFC and a researcher at the Ceará State Development Agency (ADECE). My research studies how public policy, development credit, and infrastructure shape regional development, resilience, and productive transformation in lagging regions. I use applied microeconometrics, quasi-experimental policy evaluation, administrative records, and geospatial data. My current work includes a coauthored article forthcoming in <em>International Economics and Economic Policy</em>, a solo-authored manuscript in major revisions at <em>Regional Studies</em>, other solo-authored manuscripts under peer review, and research assistant experience on a University of Notre Dame/Kellogg-supported project.
         </p>
 
         <p class="research-interests">
@@ -776,6 +798,37 @@
         </p>
       </div>
 
+      <h3 id="publications">Publications</h3>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h4>
+            Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil
+          </h4>
+
+          <p class="meta">
+            <a href="https://iigor02.github.io/" target="_blank" rel="noopener">Pedro Igor Araújo de Oliveira</a>, Ramon Lima Ribeiro, and Victor Lira Stilita · Forthcoming in <em>International Economics and Economic Policy</em>
+          </p>
+
+          <span class="status-pub">Forthcoming</span>
+          <span class="tag">Monetary policy</span>
+          <span class="tag">Credit default</span>
+          <span class="tag">Distributional effects</span>
+          <span class="tag">Firm size</span>
+
+          <div class="paper-actions">
+            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
+            <a class="data-code" href="" target="_blank" rel="noopener">Data &amp; Code</a>
+            <a class="data-code" href="https://www.researchsquare.com/article/rs-8370050/v1" target="_blank" rel="noopener">Preprint</a>
+          </div>
+
+          <div class="abstract">
+            This paper examines heterogeneous monetary transmission to credit default in Brazil using monthly Central Bank data from 2012 to 2024 disaggregated by income bracket, firm size, and state. The analysis documents that interest-rate movements predict subsequent default deterioration unevenly across borrowers. For households, the strongest responses are concentrated in the broader central segment of the income distribution, especially lower-middle and middle-income borrowers, with effects becoming visible after several months. For firms, small businesses show the clearest and strongest responses, while large firms remain more insulated. Additional mechanism exercises based on occupational, sectoral, and product-level splits suggest that firm-side heterogeneity is closely related to credit segmentation and exposure to free and short-term credit. The paper contributes reduced-form evidence on the distributional burden of monetary tightening in an emerging market credit system.
+          </div>
+        </article>
+
+      </div>
+
       <h3 id="under-review">Under Review</h3>
 
       <div class="paper-list">
@@ -805,31 +858,6 @@
           </div>
         </article>
 
-        <article class="paper">
-          <h4>
-            Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil
-          </h4>
-
-          <p class="meta">
-            <a href="https://iigor02.github.io/" target="_blank" rel="noopener">Pedro Igor Araújo de Oliveira</a>, Ramon Lima Ribeiro, and Victor Lira Stilita · Minor revisions at <em>International Economics and Economic Policy</em>
-          </p>
-
-          <span class="status-rr">Minor Revisions</span>
-          <span class="tag">Monetary policy</span>
-          <span class="tag">Credit default</span>
-          <span class="tag">Distributional effects</span>
-          <span class="tag">Firm size</span>
-
-          <div class="paper-actions">
-            <button class="abstract-toggle" type="button" onclick="toggleAbstract(this)">Show abstract</button>
-            <a class="data-code" href="" target="_blank" rel="noopener">Data &amp; Code</a>
-            <a class="data-code" href="https://www.researchsquare.com/article/rs-8370050/v1" target="_blank" rel="noopener">Preprint</a>
-          </div>
-
-          <div class="abstract">
-            This paper examines heterogeneous monetary transmission to credit default in Brazil using monthly Central Bank data from 2012 to 2024 disaggregated by income bracket, firm size, and state. The analysis documents that interest-rate movements predict subsequent default deterioration unevenly across borrowers. For households, the strongest responses are concentrated in the broader central segment of the income distribution, especially lower-middle and middle-income borrowers, with effects becoming visible after several months. For firms, small businesses show the clearest and strongest responses, while large firms remain more insulated. Additional mechanism exercises based on occupational, sectoral, and product-level splits suggest that firm-side heterogeneity is closely related to credit segmentation and exposure to free and short-term credit. The paper contributes reduced-form evidence on the distributional burden of monetary tightening in an emerging market credit system.
-          </div>
-        </article>
 
         <article class="paper">
           <h4>
@@ -1240,7 +1268,7 @@
 
   <footer>
     <div class="container">
-      © <span id="year"></span> Ramon Lima Ribeiro. Last updated August 2026.
+      © <span id="year"></span> Ramon Lima Ribeiro. Last updated September 2026.
     </div>
   </footer>
 
